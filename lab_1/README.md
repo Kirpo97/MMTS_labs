@@ -6,7 +6,7 @@
 * Выполнить топологическую декомпозицию системы
 * Разработать алгоитм решения задачи топологической декомпозиции на одном из языков программирования. Привести результаты работы программы
     
-   ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/System.png?raw=true)
+   ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/System_large.jpg?raw=true)
     
 Выполнение
 
