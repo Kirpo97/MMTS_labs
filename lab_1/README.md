@@ -100,12 +100,12 @@
     Q(10) = (10)
     V5 = R(10) п Q(10) = (10)
     
-    И того имеем:
-    1. G1(V1) = G1(1,3,4)
-    2. G2(V2) = G2(2)
-    3. G3(V3) = G3(5)
-    4. G4(V4) = G4(6,7,8,9)
-    5. G5(V5) = G5(10)
+И того имеем:
+1. G1(V1) = G1(1,3,4)
+2. G2(V2) = G2(2)
+3. G3(V3) = G3(5)
+4. G4(V4) = G4(6,7,8,9)
+5. G5(V5) = G5(10)
 
     ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/decomposition.jpg?raw=true)
     ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/t_d.jpg?raw=true)
