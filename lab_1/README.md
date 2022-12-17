@@ -100,7 +100,8 @@
     Q(10) = (10)
     R(10) п Q(10) = (10)
 
-
+    ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/decomposition.jpg?raw=true)
+    ![Alt-текст](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/.img/t_d.jpg?raw=true)
 
 4. Алгоритм решения задачи топологической декомпозиции
 
