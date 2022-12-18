@@ -2,4 +2,4 @@
 
 Отчёт по работе: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/1.pdf)
 
-Исходный код программы: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/1.odt)
+Исходный код программы: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/topological_decomposing_graph.ipynb)
