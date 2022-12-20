@@ -4,4 +4,4 @@
 
 Исходный код Задания 1: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/topological_decomposing_graph.ipynb)
 
-Исходный код Задания 2: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/topological_decomposing_graph.ipynb)
+Исходный код Задания 2: [>> тут <<](https://github.com/Kirpo97/MMTS_labs/blob/main/lab_1/work_2.ipynb)
