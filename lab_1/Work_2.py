@@ -1,32 +1,5 @@
-matr_smeg_1 = [
-#     1   2   3   4   5   6   7   8   9  10   j/i      
-    ['0','0','0','1','1','0','0','0','0','0'],  # 1
-    ['1','0','1','0','0','0','0','0','0','0'],  # 2
-    ['1','0','0','0','0','0','0','0','0','0'],  # 3
-    ['0','0','1','0','0','0','1','0','0','0'],  # 4
-    ['0','0','0','0','0','1','0','0','0','0'],  # 5
-    ['0','0','0','0','0','0','1','0','0','0'],  # 6
-    ['0','0','0','0','0','0','0','0','1','0'],  # 7
-    ['0','0','0','0','0','1','0','0','0','0'],  # 8
-    ['0','0','0','0','0','0','0','1','0','1'],  # 9
-    ['0','0','0','0','0','0','0','0','0','0']  # 10
-]
-
-matr_ints_1 = [
-#     1    2    3    4    5    6    7    8    9   10   11   12   13   j/i             
-    ['1','-1','-1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0'],  # 1
-    ['0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0'],  # 2
-    ['0', '0', '1', '0','-1','-1', '0', '0', '0', '0', '0', '0', '0'],  # 3
-    ['0', '0', '0','-1', '0', '1', '1', '0', '0', '0', '0', '0', '0'],  # 4
-    ['-1','0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0'],  # 5
-    ['0', '0', '0', '0', '0', '0', '0','-1', '1','-1', '0', '0', '0'],  # 6
-    ['0', '0', '0', '0', '0', '0','-1', '0','-1', '0', '1', '0', '0'],  # 7
-    ['0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0','-1', '0'],  # 8
-    ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0','-1', '1', '1'],  # 9
-    ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0','-1']   # 10
-]
-       
-
+# Вариант 15
+  
 matr_smeg_2 = [
 #     1   2   3   4   5   6   7   8   9  10  11  12  13  14  15   j/i                  
     ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],  # 1
@@ -66,116 +39,143 @@ matr_ints_2 = [
 ]
 
 #  Множественное представление G(i)
-M_smeg = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+M_smeg = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
 
-#  Множественное представление G^-1(i)
-M_ints_m1 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-M_ints_1 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+#  Множественное представление G^-1(i). Разделение на подмножества, где есть 1 и -1
+M_ints_1 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+M_ints_m1 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
 
-for i in range(len(matr_ints_2)):
-    for j in range(10):
-        if matr_smeg_2[i][j] == '1':
-            M_smeg[i].add(j+1)
-
-for i in range(10):
-    for j in range(13):
-        if matr_ints_2[i][j] == '-1':
-            M_ints_m1[i].add(j+1)
-        elif matr_ints_2[i][j] == '1':
-            M_ints_1[i].add(j+1)
-            
-    
 # Находим пересечения подмножеств
-mnog_1 = [set(), set(), set(), set(), set(), set(), set(), set(), set(), set()]
-for k in range(10):  
-    for p in range(10):
-        if (M_ints_m1[k].intersection(M_ints_1[p])):
-            mnog_1[k].add(p+1) 
+peres_mnog = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
 
+a = [{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15}]
+R = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+V = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+
+#  Находим длины пути R(i)
 R_lambda_1 = M_smeg
-R_lambda_2 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-R_lambda_3 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-R_lambda_4 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-R_lambda_5 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-
+R_lambda_2 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_3 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_4 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_5 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_6 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_7 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_8 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_9 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+R_lambda_10 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
 R_lambda = [
     R_lambda_1,
     R_lambda_2,
     R_lambda_3,
     R_lambda_4,
-    R_lambda_5
+    R_lambda_5,
+    R_lambda_6,
+    R_lambda_7,
+    R_lambda_8,
+    R_lambda_9,
+    R_lambda_10
 ]
 
-def calc_lambda():
-    for R in range(5):    
-        for u in range(0,10):     
-            for l in range(0,10):       
-                if l in M_smeg[u]:
-                    R_lambda[R][u].update(R_lambda[R-1][l-1])
-        print("R_lambda(",R+1,") = ", R_lambda[R])
-    
-calc_lambda()
-
-# Находим R
-a = [{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}]
-R = [set(), set(), set(), set(), set(), set(), set(), set(), set(), set()]
-
-def calc_R():
-    for t in range(10):            
-        R[t] = a[t] | R_lambda[0][t] | R_lambda[1][t] | R_lambda[2][t] | R_lambda[3][t] | R_lambda[4][t]
-        print("R(",t+1,") = ", R[t])
-     
-calc_R()
-
-#  Находим Q(i)
-Q_lambda_1 = mnog_1
-Q_lambda_2 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-Q_lambda_3 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-Q_lambda_4 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-Q_lambda_5 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
-
+#  Находим длины пути Q(i)
+Q_lambda_1 = peres_mnog
+Q_lambda_2 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_3 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_4 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_5 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_6 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_7 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_8 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_9 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
+Q_lambda_10 = [set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()]
 Q_lambda = [
     Q_lambda_1,
     Q_lambda_2,
     Q_lambda_3,
     Q_lambda_4,
-    Q_lambda_5
+    Q_lambda_5,
+    Q_lambda_6,
+    Q_lambda_7,
+    Q_lambda_8,
+    Q_lambda_9,
+    Q_lambda_10
 ]
 
-def calc_lambda():
-    for R in range(5):    
-        for u in range(0,10):     
-            for l in range(0,10):       
-                if l in mnog_1[u]:
-                    Q_lambda[R][u].update(Q_lambda[R-1][l-1])
-        print("Q_lambda(",R+1,") = ", Q_lambda[R])
+def calc_G(matr, mnog, r):    
+    for i in range(r):
+        for j in range(r):
+            if matr[i][j] == '1':
+                mnog[i].add(j+1)
+    print("G() = ",mnog,'\n') 
+
+# Разделение на подмножества
+def deference(matr, mng_1, mng_m1, range_1, range_2):   
+    for i in range(range_1):
+        for j in range(range_2):
+            if matr[i][j] == '-1':
+                mng_m1[i].add(j+1)
+            elif matr[i][j] == '1':
+                mng_1[i].add(j+1)
+    print("G_m1() = ", mng_m1)  
+    print("G_1() = ", mng_1)  
     
-calc_lambda()
-print()
-
-# Находим R
-a = [{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}]
-Q = [set(), set(), set(), set(), set(), set(), set(), set(), set(), set()]
-
-def calc_R():
-    for t in range(10):            
-        Q[t] = a[t] | Q_lambda[0][t] | Q_lambda[1][t] | Q_lambda[2][t] | Q_lambda[3][t] | Q_lambda[4][t]
-        print("Q(",t+1,") = ", Q[t])
-     
-calc_R()
-
-# Нахождение сильно связного подграфа:
-
-V = [set(), set(), set(), set(), set(), set(), set(), set(), set(), set()]
-
-for i in range(10):
-    V[i] = R[i] & Q[i]
-    print("V",i+1," = ", V[i])
+# Вычисление G^-1() с длинной пути 1, находим пересечения подмножеств
+def calc_Gm1(peres_mng, mng_1, mng_m1, r, r2): 
+    for k in range(r):  
+        for p in range(r2):
+            if (mng_m1[k].intersection(mng_1[p])):
+                peres_mng[k].add(p+1) 
+    print("G^-1() = ",peres_mng)
     
-# отфильтруем результаты:
-o = 1
-for i in range(1, 10):
-    if (V[i-1].isdisjoint(V[i])):
-        print("V",o," = ", V[i])
-        o += 1
+# Вычисление длины пути R(i) и Q(i)
+def calc_lambda(str, p1, p2, range_1, range_2):
+    for R in range(range_1):    
+        for u in range(range_2):     
+            for l in range(range_2):       
+                if l in p2[u]:
+                    p1[R][u].update(p1[R-1][l-1])
+        print(str,"(",R+1,") = ", p1[R]) 
+        
+def calc(str, p1, p2, r):
+    for t in range(r):            
+        p2[t] = a[t] | p1[0][t] | p1[1][t] | p1[2][t] | p1[3][t] | p1[4][t]
+        print(str, "(",t+1,") = ", p2[t])         
+
+def res(r):
+    for i in range(r):
+        V[i] = R[i] & Q[i]
+        print("V",i+1," = ", V[i])
+    print()   
+    print("__Р Е З У Л Ь Т А Т__")  
+    print()
+    a = set()
+    for i in range(15):  
+            a.add(str(V[i]))  
+    return print(a)
+
+
+if __name__ == '__main__':
+    
+    l_sm = len(matr_smeg_2)       
+    l_in_y = len(matr_ints_2)
+    l_in_x = len(matr_ints_2[0])
+
+    calc_G(matr_smeg_2, M_smeg, l_sm)
+    deference(matr_ints_2, M_ints_1, M_ints_m1, l_in_y, l_in_x)
+    calc_Gm1(peres_mnog, M_ints_1, M_ints_m1, l_in_y, l_in_y)
+
+    print()
+
+    # Вычисление длин R(i)
+    calc_lambda("R_lambda",R_lambda, M_smeg, 10, l_sm) # 10 - максимальная длинна пути lambda
+    calc("R",R_lambda, R, l_in_y)
+    print()
+
+    # Вычисление длин Q(i)
+    calc_lambda("Q_lambda",Q_lambda, peres_mnog, 10, l_in_y)
+    calc("Q",Q_lambda, Q, l_in_y)
+
+    print()
+    res(l_sm)
+    print()
 
