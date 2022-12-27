@@ -148,10 +148,23 @@ def res(r):
     print()   
     print("__Р Е З У Л Ь Т А Т__")  
     print()
-    a = set()
-    for i in range(15):  
-            a.add(str(V[i]))  
-    return print(a)
+    
+    # отфильтруем результаты:
+    o = 1
+    a = [set(), set(), set(), set(), set(), set(), set(), set(), set(), set()]
+    list_s = []
+    for i in range(15):
+        if (V[i].isdisjoint(V[o])):
+            V[i].discard(i)
+            a[i] = V[i]
+            o += 1
+        if a[i] != set():
+            list_s.append(a[i])
+            print("V",i+1," = ", a[i])
+              
+    return list_s
+
+
 
 
 if __name__ == '__main__':
@@ -176,6 +189,52 @@ if __name__ == '__main__':
     calc("Q",Q_lambda, Q, l_in_y)
 
     print()
-    res(l_sm)
+    list_s = res(l_sm)
     print()
+
+
+    import numpy as np
+
+    matr_dost_1 = np.matrix ([
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0], 
+        [0,0,0,0,0,0,0,0,0,0]
+        ])
+
+    m_s = np.matrix ([
+    #    1 2 3 4 5 6 7 8 9 10   j/i      
+        [0,0,0,1,1,0,0,0,0,0,0,0,0,0,0],  # 1
+        [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],  # 2
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],  # 3
+        [0,0,1,0,0,0,1,0,0,0,0,0,0,0,0],  # 4
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],  # 5
+        [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],  # 6
+        [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],  # 7
+        [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],  # 8
+        [0,0,0,0,0,0,0,1,0,1],  # 9
+        [0,0,0,0,0,0,0,0,0,0]  # 10
+    ])
+    
+    matr_dost_2 = matr_dost_1
+
+    for k in range(5):
+        for i in list_s[k]:
+            matr_dost_1[k] |= m_s[i-1]        
+        
+    matr_dost_t = matr_dost_1.transpose()
+
+    for k in range(5):
+        for i in list_s[k]:
+            matr_dost_2[k] |= matr_dost_t[i-1]  
+    matr_dost_t2 = matr_dost_2.transpose()
+        
+    np.fill_diagonal(matr_dost_t2, 0)
+    matr_dost_t2
 
